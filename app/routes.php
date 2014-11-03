@@ -14,3 +14,6 @@ Route::get('/delete/{task}', array('as' => 'delete', 'uses' => 'HomeController@g
 
 Route::get('/login', array('as' => 'login', 'uses' => 'AuthController@getLogin'))->before('guest');
 Route::post('login', array('uses' => 'AuthController@postLogin'))->before('csrf');
+
+Route::get('/register', array('as' => 'register', 'uses' => 'AuthController@getRegister'));
+Route::post('/register', array('uses' => 'AuthController@postRegister'));

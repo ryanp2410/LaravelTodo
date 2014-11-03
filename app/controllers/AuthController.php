@@ -28,4 +28,30 @@ class AuthController extends BaseController {
 		return Redirect::route('home');
 	}
 
+	public function getRegister() {
+		return View::make('register');
+	}
+
+	public function postRegister() {
+		$rules = array('name' => 'required|min:3|max:32|unique:users', 
+					   'password' => 'required|min:8',
+					   'confirmPassword' => 'required|same:password',
+					   'email' => 'required|email');
+		$validator = Validator::make(Input::all(), $rules);
+
+		if($validator->fails()) {
+			return Redirect::route('register')->withErrors($validator);
+		}
+
+		$user = new User;
+		$user->name = Input::get('name');
+		$user->password = Hash::make(Input::get('password'));
+		$user->email = Input::get('email');
+
+		$user->save();
+
+		return Redirect::route('login');
+
+	}
+
 }

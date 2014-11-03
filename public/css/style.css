@@ -51,6 +51,11 @@ h1 {
 	border-bottom: 1px solid #cccccc;
 }
 
+h1 a {
+	color:inherit;
+	text-decoration: inherit;
+}
+
 ul {
 	margin: 0;
 	padding: 0;
@@ -61,7 +66,7 @@ ul li {
 	line-height: 40px;
 }
 
-a:link, a:visited {
+a:link, a:visited,  {
 	color: #4e7ea7;
 	text-decoration: none;
 }

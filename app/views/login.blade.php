@@ -2,6 +2,8 @@
 
 @section('content')
 
+	<h1>Login or <a href="{{ URL::route('register') }}">Register</a></h1>
+
 	@foreach ($errors->all() as $error)
 		<p class="error">{{ $error }}</p>
 	@endforeach
